@@ -112,7 +112,7 @@ def materialize(
     compacted_tables = []
     materialized_results: List[MaterializeResult] = []
     total_record_count = 0
-    for src_dfl in enumerate(sorted(all_src_file_records.keys())):
+    for src_dfl in sorted(all_src_file_records.keys()):
         record_numbers_dd_task_idx_tpl_list: List[Tuple[DeltaFileLocatorToRecords, repeat]] = \
             all_src_file_records[src_dfl]
         record_numbers_tpl, dedupe_task_idx_iter_tpl = zip(
@@ -151,10 +151,11 @@ def materialize(
         )
         record_count = len(pa_table)
         if record_count > max_records_per_output_file:
-            raise ValueError(f"'max_records_per_output_file' is set to '{max_records_per_output_file}' "
-                             f"but record count of manifest entry id: {src_file_idx_np.item()}, "
-                             f"of delta locator: {delta_locator}, is '{record_count}'. "
-                             f"Please increase your 'max_records_per_output_file'")
+            logger.warning(f"'max_records_per_output_file' is set to '{max_records_per_output_file}' "
+                           f"but record count of manifest entry id: {src_file_idx_np.item()}, "
+                           f"of delta locator: {delta_locator}, is '{record_count}'. "
+                           f"Records up to this point ({total_record_count + record_count}) "
+                           f"will be sliced into {max_records_per_output_file} record chunks.")
         mask_pylist = list(repeat(False, record_count))
         record_numbers = chain.from_iterable(record_numbers_tpl)
         for record_number in record_numbers:
