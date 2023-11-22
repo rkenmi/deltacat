@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1700691695231,
+  "lastUpdate": 1700691716471,
   "repoUrl": "https://github.com/rkenmi/deltacat",
   "entries": {
     "Benchmark": [
@@ -2010,6 +2010,341 @@ window.BENCHMARK_DATA = {
             "unit": "iter/sec",
             "range": "stddev: 0.06317955853502852",
             "extra": "mean: 395.2910545999998 msec\nrounds: 5"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "rkenmi",
+            "username": "rkenmi"
+          },
+          "committer": {
+            "name": "rkenmi",
+            "username": "rkenmi"
+          },
+          "id": "73f8d8a4b9dad19a7733a2179cc155055b3f1882",
+          "message": "[Testing] Benchmarks",
+          "timestamp": "2021-12-03T22:20:44Z",
+          "url": "https://github.com/rkenmi/deltacat/pull/2/commits/73f8d8a4b9dad19a7733a2179cc155055b3f1882"
+        },
+        "date": 1700691715661,
+        "tool": "pytest",
+        "benches": [
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[1-incremental-pkstr-sknone-norcf_V1]",
+            "value": 2.1109535152964973,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 473.719573999972 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[1-incremental-pkstr-sknone-norcf_V2]",
+            "value": 2.0646118929247272,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 484.35253299999204 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[2-incremental-pkstr-skstr-norcf_V1]",
+            "value": 2.168041948177427,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 461.2456880000195 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[2-incremental-pkstr-skstr-norcf_V2]",
+            "value": 2.1983189476992604,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 454.89304499994887 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[3-incremental-pkstr-multiskstr-norcf_V1]",
+            "value": 2.142263397724528,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 466.7960069999708 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[3-incremental-pkstr-multiskstr-norcf_V2]",
+            "value": 2.161603229988716,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 462.6195899999743 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[4-incremental-duplicate-pk_V1]",
+            "value": 2.130533914035801,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 469.3659150000258 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[4-incremental-duplicate-pk_V2]",
+            "value": 2.165568481985549,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 461.77251299997124 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[5-incremental-decimal-pk-simple_V1]",
+            "value": 2.1899893122607814,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 456.62323300001617 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[5-incremental-decimal-pk-simple_V2]",
+            "value": 1.725029450047793,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 579.7002479999946 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[6-incremental-integer-pk-simple_V1]",
+            "value": 2.147633696495392,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 465.6287530000327 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[6-incremental-integer-pk-simple_V2]",
+            "value": 2.1853987343365295,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 457.58240099996783 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[7-incremental-timestamp-pk-simple_V1]",
+            "value": 2.1957150620562573,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 455.432500000029 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[7-incremental-timestamp-pk-simple_V2]",
+            "value": 2.1344307198675887,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 468.50899899999376 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[8-incremental-decimal-timestamp-pk-multi_V1]",
+            "value": 2.200186034089969,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 454.5070209999835 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[8-incremental-decimal-timestamp-pk-multi_V2]",
+            "value": 2.1727159100748445,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 460.2534530000071 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[9-incremental-decimal-pk-multi-dup_V1]",
+            "value": 2.2275365402978653,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 448.926417999985 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[9-incremental-decimal-pk-multi-dup_V2]",
+            "value": 2.216295012092902,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 451.20346999999583 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[10-incremental-decimal-pk-partitionless_V1]",
+            "value": 2.0357780666411567,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 491.21267999998963 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[10-incremental-decimal-pk-partitionless_V2]",
+            "value": 2.2096484973369868,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 452.5606679999896 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[11-incremental-decimal-hash-bucket-single_V1]",
+            "value": 2.2574197861150638,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 442.98362500001076 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_incremental.py::test_compact_partition_incremental[11-incremental-decimal-hash-bucket-single_V2]",
+            "value": 2.3075304007091177,
+            "unit": "iter/sec",
+            "range": "stddev: 0",
+            "extra": "mean: 433.3637380000255 msec\nrounds: 1"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[1-rebase-then-incremental-sanity_V1]",
+            "value": 2.479551343394244,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0043351491314633",
+            "extra": "mean: 403.298767199999 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[1-rebase-then-incremental-sanity_V2]",
+            "value": 2.6348450027738113,
+            "unit": "iter/sec",
+            "range": "stddev: 0.05851448052053069",
+            "extra": "mean: 379.5289662000073 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[2-rebase-then-incremental-pk-multi_V1]",
+            "value": 2.5116893406549976,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06067648123766175",
+            "extra": "mean: 398.1384098000035 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[2-rebase-then-incremental-pk-multi_V2]",
+            "value": 2.5228881432906785,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06094422071669278",
+            "extra": "mean: 396.3711203999992 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[3-rebase-then-incremental-no-sk-no-partition-key_V1]",
+            "value": 2.3744866425177418,
+            "unit": "iter/sec",
+            "range": "stddev: 0.005342149704539592",
+            "extra": "mean: 421.1436619999972 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[3-rebase-then-incremental-no-sk-no-partition-key_V2]",
+            "value": 2.3570347024169065,
+            "unit": "iter/sec",
+            "range": "stddev: 0.010257056653818639",
+            "extra": "mean: 424.2618909999919 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[4-rebase-then-incremental-partial-deltas-on-incremental-deltas_V1]",
+            "value": 2.4653961653825327,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06512612516778452",
+            "extra": "mean: 405.61432440000544 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[4-rebase-then-incremental-partial-deltas-on-incremental-deltas_V2]",
+            "value": 2.591520267769161,
+            "unit": "iter/sec",
+            "range": "stddev: 0.056850403101788925",
+            "extra": "mean: 385.8738874000096 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[5-rebase-then-incremental-partial-deltas-on-incremental-deltas-2_V1]",
+            "value": 2.5389505881162178,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0467476207135978",
+            "extra": "mean: 393.86351379998814 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[5-rebase-then-incremental-partial-deltas-on-incremental-deltas-2_V2]",
+            "value": 2.4309530072562495,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0044356259074858845",
+            "extra": "mean: 411.36130439998624 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[6-rebase-then-incremental-hash-bucket-GT-records-per-compacted-file-v2-only_V2]",
+            "value": 2.1572899296195085,
+            "unit": "iter/sec",
+            "range": "stddev: 0.007039072419319779",
+            "extra": "mean: 463.5445548000007 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[7-rebase-then-incremental-no-pk-compactor-v2-only_V2]",
+            "value": 2.5027008572029232,
+            "unit": "iter/sec",
+            "range": "stddev: 0.07023494464984593",
+            "extra": "mean: 399.56832920000807 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[8-rebase-then-incremental-delete-type-delta-on-incremental_V1]",
+            "value": 2.515618090391163,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0642331102826121",
+            "extra": "mean: 397.5166197999897 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[8-rebase-then-incremental-delete-type-delta-on-incremental_V2]",
+            "value": 2.4141617124764965,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06882616398891488",
+            "extra": "mean: 414.22245859999975 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[9-rebase-then-incremental-delete-type-delta-on-incremental-multi-pk_V2]",
+            "value": 2.252676086154851,
+            "unit": "iter/sec",
+            "range": "stddev: 0.009792405842149677",
+            "extra": "mean: 443.91646279999577 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[10-rebase-then-incremental-delete-type-delta-on-incremental-multi-pk-delete-all_V2]",
+            "value": 2.194673860482126,
+            "unit": "iter/sec",
+            "range": "stddev: 0.007220272346881312",
+            "extra": "mean: 455.64856720001217 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[11-rebase-then-incremental-empty-csv-delta-case_V1]",
+            "value": 2.479462305034352,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06652310051250482",
+            "extra": "mean: 403.31324979999863 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[11-rebase-then-incremental-empty-csv-delta-case_V2]",
+            "value": 2.47716962811457,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06976502027278216",
+            "extra": "mean: 403.68652540000767 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[12-rebase-then-incremental-single-hash-bucket_V1]",
+            "value": 2.4782086958375737,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06895990134356704",
+            "extra": "mean: 403.5172669999952 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[12-rebase-then-incremental-single-hash-bucket_V2]",
+            "value": 2.3663631470379367,
+            "unit": "iter/sec",
+            "range": "stddev: 0.0025994354167980507",
+            "extra": "mean: 422.5894074000166 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[13-rebase-then-incremental-drop-duplicates-false-on-incremental-v2-only_V2]",
+            "value": 2.300792371541509,
+            "unit": "iter/sec",
+            "range": "stddev: 0.007229647659552277",
+            "extra": "mean: 434.6328735999805 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[14-rebase-then-empty-incremental-delta_V1]",
+            "value": 2.4933400021202408,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06793711490191685",
+            "extra": "mean: 401.0684459999993 msec\nrounds: 5"
+          },
+          {
+            "name": "deltacat/tests/compute/test_compact_partition_rebase_then_incremental.py::test_compact_partition_rebase_then_incremental[14-rebase-then-empty-incremental-delta_V2]",
+            "value": 2.4560772617496958,
+            "unit": "iter/sec",
+            "range": "stddev: 0.06922376276797063",
+            "extra": "mean: 407.15331540002353 msec\nrounds: 5"
           }
         ]
       }
