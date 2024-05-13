@@ -20,6 +20,16 @@ TEST_S3_BUCKET_NAME = "TEST_S3_BUCKET"
 TEST_S3_KEY = "TEST_S3_KEY"
 
 
+class TestUuidBlockWritePathProvider(unittest.TestCase):
+    def test_uuid_block_write_provider_sanity(self):
+        capture_object = CapturedBlockWritePaths()
+        provider = UuidBlockWritePathProvider(capture_object=capture_object)
+
+        result = provider("base_path")
+
+        self.assertRegex(result, r"^base_path/[\w-]{36}$")
+
+
 @pytest.fixture(autouse=True, scope="module")
 def mock_aws_credential():
     os.environ["AWS_ACCESS_KEY_ID"] = "testing"
@@ -62,14 +72,10 @@ def test_sanity(setup_test_s3_bucket):
 def test_upload_throttled(mock_s3_client_cache, setup_test_s3_bucket):
     uri = f"s3://{TEST_S3_BUCKET_NAME}/{TEST_S3_KEY}"
     body = "test-body"
-    err = ClientError({
-        "Error": {
-            "Code": "NoSuchKey"
-        }
-    }, "put_object")
+    err = ClientError({"Error": {"Code": "NoSuchKey"}}, "put_object")
     mock_s3_client_cache.return_value = mock_s3 = mock.MagicMock()
     mock_s3.put_object.side_effect = err
-    with pytest.raises(RetryError) as e:
+    with pytest.raises(RetryError):
         s3u.upload(uri, body)
     assert mock_s3.put_object.call_count > 1
 
@@ -78,15 +84,11 @@ def test_upload_throttled(mock_s3_client_cache, setup_test_s3_bucket):
 def test_upload_unexpected_error_code(mock_s3_client_cache, setup_test_s3_bucket):
     uri = f"s3://{TEST_S3_BUCKET_NAME}/{TEST_S3_KEY}"
     body = "test-body"
-    err = ClientError({
-        "Error": {
-            "Code": "UnexpectedError"
-        }
-    }, "put_object")
+    err = ClientError({"Error": {"Code": "UnexpectedError"}}, "put_object")
     mock_s3_client_cache.return_value = mock_s3 = mock.MagicMock()
     mock_s3.put_object.side_effect = err
     file = None
-    with pytest.raises(NonRetryableError) as e:
+    with pytest.raises(NonRetryableError):
         s3u.upload(uri, body)
     assert file is None
     assert mock_s3.put_object.call_count == 1
@@ -96,16 +98,11 @@ def test_upload_unexpected_error_code(mock_s3_client_cache, setup_test_s3_bucket
 @patch("deltacat.aws.s3u.s3_client_cache")
 def test_download_throttled(mock_s3_client_cache, setup_test_s3_bucket):
     uri = f"s3://{TEST_S3_BUCKET_NAME}/{TEST_S3_KEY}"
-    body = "test-body"
-    err = ClientError({
-        "Error": {
-            "Code": "ReadTimeoutError"
-        }
-    }, "put_object")
+    err = ClientError({"Error": {"Code": "ReadTimeoutError"}}, "put_object")
     mock_s3_client_cache.return_value = mock_s3 = mock.MagicMock()
     mock_s3.get_object.side_effect = err
     file = None
-    with pytest.raises(RetryError) as e:
+    with pytest.raises(RetryError):
         file = s3u.download(uri)
     assert file is None
     assert mock_s3.get_object.call_count > 1
@@ -114,7 +111,7 @@ def test_download_throttled(mock_s3_client_cache, setup_test_s3_bucket):
 def test_download_not_exists(setup_test_s3_bucket):
     uri = f"s3://{TEST_S3_BUCKET_NAME}/key-not-exists"
     file = None
-    with pytest.raises(NonRetryableError) as e:
+    with pytest.raises(NonRetryableError):
         file = s3u.download(uri)
     assert file is None
 
@@ -125,25 +122,11 @@ def test_download_not_exists(setup_test_s3_bucket):
 @patch("deltacat.aws.s3u.s3_client_cache")
 def test_download_unexpected_error_code(mock_s3_client_cache, setup_test_s3_bucket):
     uri = f"s3://{TEST_S3_BUCKET_NAME}/key-not-exists"
-    err = ClientError({
-        "Error": {
-            "Code": "UnexpectedError"
-        }
-    }, "put_object")
+    err = ClientError({"Error": {"Code": "UnexpectedError"}}, "put_object")
     mock_s3_client_cache.return_value = mock_s3 = mock.MagicMock()
     mock_s3.get_object.side_effect = err
     file = None
-    with pytest.raises(NonRetryableError) as e:
+    with pytest.raises(NonRetryableError):
         file = s3u.download(uri)
     assert file is None
     assert mock_s3.get_object.call_count == 1
-
-
-class TestUuidBlockWritePathProvider(unittest.TestCase):
-    def test_uuid_block_write_provider_sanity(self):
-        capture_object = CapturedBlockWritePaths()
-        provider = UuidBlockWritePathProvider(capture_object=capture_object)
-
-        result = provider("base_path")
-
-        self.assertRegex(result, r"^base_path/[\w-]{36}$")
