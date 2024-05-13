@@ -528,18 +528,11 @@ def upload(s3_url: str, body, **s3_client_kwargs) -> Dict[str, Any]:
 
 
 def _put_object(
-    s3_client,
-    body: Any,
-    bucket: str,
-    key: str,
-    **s3_put_object_kwargs
+    s3_client, body: Any, bucket: str, key: str, **s3_put_object_kwargs
 ) -> Dict[str, Any]:
     try:
         return s3_client.put_object(
-            Body=body,
-            Bucket=bucket,
-            Key=key,
-            **s3_put_object_kwargs
+            Body=body, Bucket=bucket, Key=key, **s3_put_object_kwargs
         )
     except ClientError as e:
         if e.response["Error"]["Code"] == "NoSuchKey":
@@ -570,16 +563,11 @@ def download(
         s3,
         parsed_s3_url.bucket,
         parsed_s3_url.key,
-        fail_if_not_found=fail_if_not_found
+        fail_if_not_found=fail_if_not_found,
     )
 
 
-def _get_object(
-    s3_client,
-    bucket: str,
-    key: str,
-    fail_if_not_found: bool = True
-):
+def _get_object(s3_client, bucket: str, key: str, fail_if_not_found: bool = True):
     try:
         return s3_client.get_object(
             Bucket=bucket,
@@ -595,7 +583,9 @@ def _get_object(
         else:
             if e.response["Error"]["Code"] != "404":
                 if e.response["Error"]["Code"] != "NoSuchKey":
-                    raise NonRetryableError(f"Unexpected get object error from: {bucket}/{key}") from e
+                    raise NonRetryableError(
+                        f"Unexpected get object error from: {bucket}/{key}"
+                    ) from e
             logger.info(f"file not found: {bucket}/{key}")
     except s3_client.exceptions.NoSuchKey as e:
         if fail_if_not_found:
